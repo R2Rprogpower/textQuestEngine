@@ -1,0 +1,144 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddfevn5rft2e6"]
+
+[ext_resource type="Script" uid="uid://0acc462dttnk" path="res://game.gd" id="1_80nbo"]
+
+[node name="GameScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_80nbo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="GameNameLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="BookLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="ChapterLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="LocationLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="DateLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="ClickCounterLabel" type="Label" parent="MarginContainer/VBoxContainer/TopBar"]
+layout_mode = 2
+
+[node name="Middle" type="HSplitContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+dragging_enabled = false
+
+[node name="LeftPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Middle"]
+layout_mode = 2
+
+[node name="StoryScroll" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Middle/LeftPanel"]
+layout_mode = 2
+
+[node name="StoryText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Middle/LeftPanel/StoryScroll"]
+layout_mode = 2
+
+[node name="ThoughtsLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/LeftPanel"]
+layout_mode = 2
+text = "you think
+"
+
+[node name="ThoughtsText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Middle/LeftPanel"]
+layout_mode = 2
+text = "asdas das da sd"
+
+[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Middle"]
+layout_mode = 2
+
+[node name="PlayerPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Middle/RightPanel"]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/RightPanel/PlayerPanel"]
+layout_mode = 2
+
+[node name="HpLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/RightPanel/PlayerPanel"]
+layout_mode = 2
+
+[node name="ManaLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/RightPanel/PlayerPanel"]
+layout_mode = 2
+
+[node name="ObjectiveLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/RightPanel"]
+layout_mode = 2
+
+[node name="ObjectiveText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Middle/RightPanel"]
+layout_mode = 2
+
+[node name="SurroundingsLabel" type="Label" parent="MarginContainer/VBoxContainer/Middle/RightPanel"]
+layout_mode = 2
+
+[node name="SurroundingsText" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Middle/RightPanel"]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ActionsPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionsLabel" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/ActionsPanel"]
+layout_mode = 2
+
+[node name="ActionsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar/ActionsPanel"]
+layout_mode = 2
+
+[node name="StaticPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar"]
+layout_mode = 2
+
+[node name="InventoryButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/StaticPanel"]
+layout_mode = 2
+text = "Inventory
+"
+
+[node name="EquipmentButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/StaticPanel"]
+layout_mode = 2
+text = "Equipmen"
+
+[node name="StatsButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/StaticPanel"]
+layout_mode = 2
+text = "Stats
+"
+
+[node name="JournalButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/StaticPanel"]
+layout_mode = 2
+text = "Journal
+"
+
+[node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/BottomBar/StaticPanel"]
+layout_mode = 2
+text = "Menu
+"

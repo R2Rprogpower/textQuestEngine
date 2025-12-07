@@ -1,0 +1,178 @@
+{
+	"id": "demo",
+	"title": "Demo Room",
+	"description": "Short test scenario.",
+	"version": 1,
+	"player": {
+		"character_template_id": "player_default",
+		"initial_state": {
+			"stats": {
+				"courage": 0,
+				"intellect": 1,
+				"health": 10
+			},
+			"inventory": [
+				{
+					"item_id": "note_crumpled",
+					"qty": 1
+				}
+			],
+			"equipment": {
+				"head": null,
+				"body": "shirt_plain",
+				"legs": null,
+				"feet": null,
+				"hands": null,
+				"accessory": null
+			},
+			"flags": {
+				"seen_intro": false
+			}
+		}
+	},
+	"stat_definitions": {
+		"courage": {
+			"name": "Courage",
+			"type": "int",
+			"min": 0,
+			"max": 10,
+			"description": "How willing you are to do risky or scary things."
+		},
+		"intellect": {
+			"name": "Intellect",
+			"type": "int",
+			"min": 0,
+			"max": 10,
+			"description": "Reasoning and problem-solving."
+		},
+		"health": {
+			"name": "Health",
+			"type": "int",
+			"min": 0,
+			"max": 10,
+			"description": "Physical well-being."
+		}
+	},
+	"item_definitions": {
+		"note_crumpled": {
+			"name": "Crumpled Note",
+			"category": "quest",
+			"slot": null,
+			"stackable": false,
+			"max_stack": 1,
+			"base_modifiers": {},
+			"tags": [
+				"paper",
+				"clue"
+			],
+			"description": "A note that looks like someone regretted writing it."
+		},
+		"shirt_plain": {
+			"name": "Plain Shirt",
+			"category": "clothing",
+			"slot": "body",
+			"stackable": false,
+			"max_stack": 1,
+			"base_modifiers": {
+				"health": 1
+			},
+			"tags": [
+				"clothing"
+			],
+			"description": "It covers you. Barely."
+		}
+	},
+	"character_templates": {
+		"player_default": {
+			"name": "Player",
+			"allowed_slots": [
+				"head",
+				"body",
+				"legs",
+				"feet",
+				"hands",
+				"accessory"
+			],
+			"base_stats": {
+				"courage": 0,
+				"intellect": 1,
+				"health": 10
+			},
+			"tags": [
+				"player"
+			]
+		},
+		"npc_guard": {
+			"name": "Guard",
+			"allowed_slots": [
+				"body",
+				"hands"
+			],
+			"base_stats": {
+				"courage": 3,
+				"intellect": 1,
+				"health": 8
+			},
+			"tags": [
+				"npc",
+				"guard"
+			]
+		}
+	},
+	"event_definitions": {
+		"gain_courage_1": {
+			"type": "modify_stats",
+			"params": {
+				"delta": {
+					"courage": 1
+				}
+			}
+		},
+		"give_strange_note": {
+			"type": "give_items",
+			"params": {
+				"items": [
+					{
+						"item_id": "note_strange",
+						"qty": 1
+					}
+				]
+			}
+		},
+		"set_door_checked": {
+			"type": "set_flags",
+			"params": {
+				"flags": {
+					"door_checked": true
+				}
+			}
+		},
+		"jump_to_node_locked_door": {
+			"type": "jump_node",
+			"params": {
+				"node_id": "door_locked"
+			}
+		}
+	},
+	"interaction_definitions": {
+		"interact_locked_door": {
+			"name": "Try to open the locked door",
+			"target": {
+				"kind": "interactable",
+				"id": "locked_door"
+			},
+			"conditions": {
+				"requires_items": [
+					"key_rusty"
+				]
+			},
+			"on_success_events": [
+				"set_door_checked",
+				"jump_to_node_locked_door"
+			],
+			"on_failure_events": [
+				"gain_courage_1"
+			]
+		}
+	}
+}

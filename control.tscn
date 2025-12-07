@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c812rmpo0qolb"]
+[gd_scene load_steps=21 format=3 uid="uid://c812rmpo0qolb"]
 
 [ext_resource type="Script" uid="uid://b8osim3n61fgs" path="res://menu.gd" id="1_kbped"]
 [ext_resource type="Script" uid="uid://cjvrqxjdrosk3" path="res://v_box_container.gd" id="2_fj5cn"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://b0kdxxmnnsiyq" path="res://master_volume_slider_2.gd" id="11_am1vj"]
 [ext_resource type="Script" uid="uid://bqi3afsv7m4po" path="res://full_screen_check_button.gd" id="13_am1vj"]
 [ext_resource type="AudioStream" uid="uid://cqa3h623cn0xy" path="res://homo.wav" id="14_g31lc"]
+[ext_resource type="Script" uid="uid://dr207bntpdgec" path="res://exitGameSelect.gd" id="14_knq72"]
+[ext_resource type="Script" uid="uid://bavbq5ygo1kxe" path="res://game_select_block.gd" id="14_xvdhi"]
 
 [sub_resource type="Theme" id="Theme_6a6wx"]
 
@@ -34,11 +36,13 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 1.0
+offset_top = -1.0
 offset_right = 2.0
-offset_bottom = -86.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_kbped")
 
 [node name="Title" type="RichTextLabel" parent="."]
@@ -48,10 +52,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -257.0
-offset_top = -135.5
-offset_right = 257.0
-offset_bottom = 136.5
+offset_left = -258.0
+offset_top = -330.5
+offset_right = 256.0
+offset_bottom = -58.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 40
@@ -106,16 +110,17 @@ vertical_alignment = 1
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -173.5
-offset_top = -234.0
+offset_top = -117.0
 offset_right = 173.5
+offset_bottom = 117.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 alignment = 1
 script = ExtResource("2_fj5cn")
 
@@ -204,9 +209,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -258.0
-offset_top = 46.5
+offset_top = -113.5
 offset_right = 258.0
-offset_bottom = 270.5
+offset_bottom = 110.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_6a6wx")
@@ -321,6 +326,65 @@ text = "Full screen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameSelect" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -173.0
+offset_top = -122.5
+offset_right = 177.0
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_xvdhi")
+
+[node name="Label" type="Label" parent="GameSelect"]
+layout_mode = 0
+offset_left = -77.0
+offset_top = 4.0
+offset_right = 423.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 35
+text = "Select a game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="GameSelect"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 194.0
+offset_right = 215.0
+offset_bottom = 225.0
+text = "Exit
+"
+script = ExtResource("14_knq72")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GameSelect"]
+custom_minimum_size = Vector2(0, 137)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -59.5
+offset_right = 173.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameSelect/ScrollContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+theme_override_constants/separation = -2
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_g31lc")
 volume_db = -28.752
@@ -338,3 +402,4 @@ bus = &"Music"
 [connection signal="value_changed" from="Options/MusicVolumeSlider" to="Options" method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="Options/SfxVolumeSlider" to="Options" method="_on_sfx_volume_slider_value_changed"]
 [connection signal="toggled" from="Options/FullScreenCheckButton" to="Options" method="_on_full_screen_check_button_toggled"]
+[connection signal="pressed" from="GameSelect/Exit" to="GameSelect/Exit" method="_on_pressed"]
