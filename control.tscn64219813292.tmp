@@ -1,0 +1,331 @@
+[gd_scene load_steps=17 format=3 uid="uid://c812rmpo0qolb"]
+
+[ext_resource type="Script" uid="uid://b8osim3n61fgs" path="res://menu.gd" id="1_kbped"]
+[ext_resource type="Script" uid="uid://cjvrqxjdrosk3" path="res://v_box_container.gd" id="2_fj5cn"]
+[ext_resource type="Script" uid="uid://bw7xei1exj0ee" path="res://play.gd" id="3_iy58a"]
+[ext_resource type="Script" uid="uid://dl1fdyvsy1nl4" path="res://options.gd" id="4_6a6wx"]
+[ext_resource type="Script" uid="uid://uuomj3di4m22" path="res://create.gd" id="4_ee4bf"]
+[ext_resource type="Script" uid="uid://bpxlldnmo01kd" path="res://adjust.gd" id="5_fj5cn"]
+[ext_resource type="Script" uid="uid://b27jr44d87d3d" path="res://learn.gd" id="5_kbped"]
+[ext_resource type="Script" uid="uid://dxw4xl85p8t7t" path="res://exit.gd" id="5_sky72"]
+[ext_resource type="Script" uid="uid://bwn0qqp8i7t30" path="res://exitOptions.gd" id="7_iy58a"]
+[ext_resource type="Script" uid="uid://dceyeontpe2ha" path="res://master_volume_slider.gd" id="9_pxugv"]
+[ext_resource type="Script" uid="uid://cnt2bdt55cjhl" path="res://music_volume_slider.gd" id="10_eh0v1"]
+[ext_resource type="Script" uid="uid://b0kdxxmnnsiyq" path="res://master_volume_slider_2.gd" id="11_am1vj"]
+
+[sub_resource type="Theme" id="Theme_6a6wx"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_sky72"]
+color = Color(0.0643775, 0.280152, 0.479608, 1)
+thickness = 20
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0ytqx"]
+color = Color(0.692559, 0.519855, 0.707514, 1)
+thickness = 20
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pxugv"]
+color = Color(0.164115, 0.541755, 0.348298, 1)
+thickness = 20
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kbped")
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -135.5
+offset_right = 257.0
+offset_bottom = 136.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 0
+text = "THE TEXT QUEST ENGINE"
+fit_content = true
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.0
+offset_top = 248.5
+offset_right = -407.0
+offset_bottom = 310.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 0
+text = "ver alpha 0.1"
+fit_content = true
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Version3" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = 308.5
+offset_right = -407.0
+offset_bottom = 363.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/bold_font_size = 0
+text = "Developed by Busfahrn a.k.a R2Rprogpower"
+fit_content = true
+context_menu_enabled = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.5
+offset_top = -234.0
+offset_right = 173.5
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("2_fj5cn")
+
+[node name="Play" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Play
+"
+script = ExtResource("3_iy58a")
+
+[node name="Create" type="Button" parent="MainButtons"]
+layout_mode = 2
+disabled = true
+text = "Create"
+script = ExtResource("4_ee4bf")
+
+[node name="Load" type="Button" parent="MainButtons"]
+layout_mode = 2
+disabled = true
+text = "Load
+"
+script = ExtResource("3_iy58a")
+
+[node name="Adjust" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Adjust
+"
+script = ExtResource("5_fj5cn")
+
+[node name="Learn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Learn
+"
+script = ExtResource("5_kbped")
+
+[node name="Exit" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Exit
+"
+script = ExtResource("5_sky72")
+
+[node name="LearnPopUp" type="AcceptDialog" parent="."]
+title = ""
+initial_position = 1
+size = Vector2i(800, 500)
+
+[node name="LearnText" type="RichTextLabel" parent="LearnPopUp"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -242.0
+offset_right = 392.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to the Text Engine.
+No open world. No minimap. No loot boxes. 
+Just you, some words, and your questionable decision-making skills.
+
+How this works
+The game shows you a chunk of story: where you are, who you’re with, and what’s at stake.
+You choose what to do next from a set of options.
+The engine quietly tracks what kind of person you’re being: cautious, reckless, loyal, selfish, etc.
+Future scenes can change based on your past behavior—even if the game doesn’t scream it at you.
+
+What this is trying to achieve
+The goal is to be more than a linear “click next” story:
+Same world, different playthroughs.
+Same situation, different reactions depending on your history.
+Not just what you do, but who you are over time.
+Think of it as a role-playing mirror. If you see something you don’t like in your choices… well, you picked them.
+
+Tips
+Don’t stress about “good” vs “bad” endings—aim for interesting ones.
+Try a second playthrough with the opposite personality.
+If you’re stuck, imagine what your worst friend would do, and press that."
+vertical_alignment = 1
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = 46.5
+offset_right = 258.0
+offset_bottom = 270.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_6a6wx")
+
+[node name="Label" type="Label" parent="Options"]
+offset_top = -4.0
+offset_right = 500.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 35
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Button" parent="Options"]
+offset_left = 219.0
+offset_top = 189.0
+offset_right = 299.0
+offset_bottom = 220.0
+text = "Exit
+"
+script = ExtResource("7_iy58a")
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 49.0
+offset_right = 427.0
+offset_bottom = 80.0
+theme = SubResource("Theme_6a6wx")
+theme_override_styles/slider = SubResource("StyleBoxLine_sky72")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_0ytqx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_pxugv")
+min_value = -40.0
+max_value = 0.0
+step = 0.1
+script = ExtResource("9_pxugv")
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 84.0
+offset_right = 427.0
+offset_bottom = 115.0
+theme = SubResource("Theme_6a6wx")
+theme_override_styles/slider = SubResource("StyleBoxLine_sky72")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_0ytqx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_pxugv")
+min_value = -40.0
+max_value = 0.0
+step = 0.1
+script = ExtResource("10_eh0v1")
+
+[node name="MasterVolumeSliderLabel" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 49.0
+offset_right = 212.0
+offset_bottom = 80.0
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicVolumeSliderLabel" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 84.0
+offset_right = 212.0
+offset_bottom = 115.0
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SfxVolumeSlider" type="HSlider" parent="Options"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 120.0
+offset_right = 427.0
+offset_bottom = 151.0
+theme = SubResource("Theme_6a6wx")
+theme_override_styles/slider = SubResource("StyleBoxLine_sky72")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_0ytqx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_pxugv")
+min_value = -40.0
+max_value = 0.0
+step = 0.1
+script = ExtResource("11_am1vj")
+
+[node name="SFXVolumeSliderLabel" type="Label" parent="Options"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 119.0
+offset_right = 211.0
+offset_bottom = 150.0
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FullScreenCheckButton" type="CheckButton" parent="Options"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 154.0
+offset_right = 352.0
+offset_bottom = 185.0
+
+[node name="FullScreenCheckButtonLabel" type="Label" parent="Options"]
+offset_left = 87.0
+offset_top = 154.0
+offset_right = 214.0
+offset_bottom = 185.0
+text = "Full screen"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MainButtons/Play" to="MainButtons/Play" method="_on_pressed"]
+[connection signal="pressed" from="MainButtons/Create" to="MainButtons/Create" method="_on_pressed"]
+[connection signal="pressed" from="MainButtons/Load" to="MainButtons/Load" method="_on_pressed"]
+[connection signal="pressed" from="MainButtons/Adjust" to="MainButtons/Adjust" method="_on_pressed"]
+[connection signal="pressed" from="MainButtons/Learn" to="MainButtons/Learn" method="_on_pressed"]
+[connection signal="pressed" from="MainButtons/Exit" to="MainButtons/Exit" method="_on_pressed"]
+[connection signal="pressed" from="Options/Exit" to="Options/Exit" method="_on_pressed"]
+[connection signal="value_changed" from="Options/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="Options/SfxVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="pressed" from="Options/FullScreenCheckButton" to="Options" method="_on_full_screen_check_button_pressed"]
